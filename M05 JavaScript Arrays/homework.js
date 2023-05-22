@@ -22,10 +22,10 @@ function incrementarPorUno(array) {
    // El arreglo recibido por parámetro contiene números.
    // Retornar un arreglo con los elementos incrementados en +1.
    // Tu código:
-   var incrementarPorUno = array.map ((num) => {
+   var incrementar = array.map ((num) => {
       return (num + 1)
    });
-   return (incrementarPorUno);
+   return (incrementar);
 }
 
 function agregarItemAlFinalDelArray(array, elemento) {
@@ -61,7 +61,7 @@ function arrayContiene(array, elemento) {
    var incluyeElemento = array.includes(elemento);
    if (incluyeElemento) {
       return (true);
-   } else {
+    } else {
       return (false);
    }
 }
@@ -70,18 +70,35 @@ function agregarNumeros(arrayOfNums) {
    // El parámetro "arrayOfNums" debe ser un arreglo de números.
    // Suma todos los elementos y retorna el resultado.
    // Tu código:
+   var suma = 0;
+   for (var i = 0; i < arrayOfNums.length; i++) {
+      suma = suma + arrayOfNums[i];
+   }
+   return (suma);
 }
 
 function promedioResultadosTest(resultadosTest) {
    // El parámetro "resultadosTest" es un arreglo de números.
    // Itera (en un bucle) los elementos del arreglo y devuelve el promedio de las notas.
    // Tu código:
+   var promedio = 0
+   for (var i = 0; i < resultadosTest.length; i++) {
+      promedio = promedio + resultadosTest[i];
+   }
+   return (promedio/resultadosTest.length);
 }
 
 function numeroMasGrande(arrayOfNums) {
    // El parámetro "arrayOfNums" es un arreglo de números.
    // Retornar el número más grande.
    // Tu código:
+   var MaxNum = 0 //Asignamos variable y valor inicial como el mas grande.
+   for (var i = 0; i < arrayOfNums.length; i++) { 
+      if (MaxNum < arrayOfNums[i]) { 
+         MaxNum = arrayOfNums[i]; //a MaxNum se le asigna el valor actual de array.
+      }
+   }
+   return (MaxNum);
 }
 
 function multiplicarArgumentos() {
@@ -89,11 +106,28 @@ function multiplicarArgumentos() {
    // Si no se pasan argumentos retorna 0. Si se pasa un argumento, simplemente retórnalo.
    // [PISTA]: "arguments" es un arreglo.
    // Tu código:
+   if (arguments[0] == undefined) {
+      return (0);
+   } else {
+      var result = 1
+      for (var i = 0; i < arguments.length; i++) {
+         var max = result * arguments[i]
+         result = max
+      }
+         return (result);
+   }
 }
 
 function cuentoElementos(array) {
    // Desarrolla una función que retorne la cantidad de elementos del arreglo cuyo valor sea mayor que 18.
-   // Tu código:
+   // Tu código: 
+   var cuento = 0
+   array.forEach(num => {
+      if (num > 18) {
+         cuento = cuento + 1
+      }
+   });
+   return (cuento);
 }
 
 function diaDeLaSemana(numeroDeDia) {
@@ -101,13 +135,24 @@ function diaDeLaSemana(numeroDeDia) {
    // Realiza una función que, dado el número del día de la semana, retorne: "Es fin de semana"
    // si el día corresponde a "Sábado" o "Domingo", y "Es dia laboral" en caso contrario.
    // Tu código:
+   if (numeroDeDia > 1 && numeroDeDia < 8) {
+      return ("Es dia laboral");
+   } else {
+      return ("Es fin de semana");
+   }
 }
 
 function empiezaConNueve(num) {
    // Esta función recibe por parámetro un número.
    // Debe retornar true si el entero inicia con 9 y false en otro caso.
    // Tu código:
+   if (num[0] === "9") {
+      return (true);
+   } else {
+      return (false);
+   }
 }
+
 
 function todosIguales(array) {
    // Si todos los elementos del arreglo son iguales, retornar true.
